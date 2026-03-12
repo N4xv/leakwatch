@@ -20,5 +20,5 @@ app.post("/scan", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`LeakWatch corriendo en http://localhost:${PORT}`);
+  console.log(`LeakWatch corriendo en http://localhost:${PORT}`); el programa correrá en localhost 
 });
