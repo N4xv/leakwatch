@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(express.static("C:\\Users\\andre\\Leakwatch\\gitsecret-scanner\\public"));
+app.use(express.static("C:\\Users\\tu_user_aqui\\Leakwatch\\gitsecret-scanner\\public"));
 app.post("/scan", async (req, res) => {
   const { owner, repo } = req.body;
 
@@ -15,7 +15,7 @@ app.post("/scan", async (req, res) => {
     return res.status(400).json({ error: "owner y repo son requeridos" });
   }
 
-  const findings = await scanRepo(owner, repo);
+  const findings = await scanRepo(owner, repo); //función con el enlazamiento y posterior enrutamiento de puertos en scanner.js
   res.json({ findings, total: findings.length });
 });
 
