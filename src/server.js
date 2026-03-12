@@ -6,7 +6,7 @@ const { scanRepo } = require("./scanner");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.json());
+app.use(express.json()); //todos los datos pasarán a un archivo json para su respectiva redistribución 
 app.use(express.static("C:\\Users\\tu_user_aqui\\Leakwatch\\gitsecret-scanner\\public"));
 app.post("/scan", async (req, res) => {
   const { owner, repo } = req.body;
