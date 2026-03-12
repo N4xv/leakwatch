@@ -2,19 +2,19 @@ const axios = require("axios");
 const PATTERNS = require("./patterns");
 
 const GITHUB_API = "https://api.github.com";
-
+//implantación del token de GitHub en el módulo principal
 const getHeaders = () => ({
   Authorization: `token ${process.env.GITHUB_TOKEN}`,
   Accept: "application/vnd.github.v3+json",
 });
 
 async function scanRepo(owner, repo) {
-  const findings = [];
+  const findings = []; // verificación del dueño del proyecto y validación de datos para verificar la ruta del repositorio 
 
   try {
     const { data } = await axios.get(
       `${GITHUB_API}/repos/${owner}/${repo}/git/trees/HEAD?recursive=1`,
-      { headers: getHeaders() }
+      { headers: getHeaders() } //extracción y posterior uso de la Api de GitHub para añadir las utilidades 
     );
 
     const files = data.tree.filter((f) => f.type === "blob");
